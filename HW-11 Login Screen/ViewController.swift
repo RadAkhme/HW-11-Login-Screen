@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     
@@ -217,7 +218,75 @@ class ViewController: UIViewController {
        }
     
     private func setupLayout() {
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(view)
+            make.bottom.equalTo(view)
+            make.left.equalTo(view)
+            make.right.equalTo(view)
+        }
         
+        label.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(80)
+        }
+           
+        loginTextField.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.top.equalTo(label.snp.bottom).offset(30)
+            make.left.equalTo(view).offset(50)
+            make.right.equalTo(view).inset(50)
+        }
+           
+        passwordTextField.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.top.equalTo(loginTextField.snp.bottom).offset(13)
+            make.left.equalTo(view).offset(50)
+            make.right.equalTo(view).inset(50)
+        }
+           
+        button.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(50)
+            make.left.equalTo(view).offset(50)
+            make.right.equalTo(view).inset(50)
+        }
+           
+        passwordQuestionButton.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(button.snp.bottom).offset(10)
+        }
+           
+        horizontalLine.snp.makeConstraints { make in
+            make.right.equalTo(textLabel.snp.left).offset(0)
+            make.bottom.equalTo(stack.snp.top).offset(-22)
+            make.height.equalTo(1)
+            make.left.equalTo(view).offset(50)
+        }
+           
+        horizontalLine2.snp.makeConstraints { make in
+            make.left.equalTo(textLabel.snp.right).offset(0)
+            make.bottom.equalTo(stack.snp.top).offset(-22)
+            make.height.equalTo(1)
+            make.right.equalTo(view).offset(-50)
+        }
+        
+        textLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(stack.snp.top).offset(-15)
+        }
+        
+        stack.snp.makeConstraints { make in
+            make.height.equalTo(60)
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(footerStack.snp.top).offset(-15)
+            make.left.equalTo(view).offset(30)
+            make.right.equalTo(view).inset(30)
+        }
+        
+        footerStack.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(view).offset(-50)
+        }
     }
 
     // MARK: - Actions
